@@ -6,7 +6,7 @@ WORKDIR /data/tianxing/PycharmProjects/CallbotNLPServer
 
 COPY . /data/tianxing/PycharmProjects/CallbotNLPServer \
 --exclude data/ \
---exclude server/callbot_nlp_server/dotenv/ \
+--exclude server/callbot_nlp_server/dotenv/
 
 RUN pip3 install --upgrade pip
 
