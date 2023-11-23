@@ -1,8 +1,8 @@
 FROM python:3.6
 
-RUN mkdir -p /data/tianxing/PycharmProjects/CallbotNLPServer && \
-COPY . /data/tianxing/PycharmProjects/CallbotNLPServer \
---exclude data/
+RUN mkdir -p /data/tianxing/PycharmProjects/CallbotNLPServer
+
+COPY . /data/tianxing/PycharmProjects/CallbotNLPServer
 
 WORKDIR /data/tianxing/PycharmProjects/CallbotNLPServer
 
