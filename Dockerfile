@@ -2,7 +2,7 @@ FROM python:3.6
 
 RUN mkdir -p /data/tianxing/PycharmProjects/CallbotNLPServer
 
-COPY . /data/tianxing/PycharmProjects/CallbotNLPServer --exclude server/callbot_nlp_server/dotenv/
+COPY . /data/tianxing/PycharmProjects/CallbotNLPServer --exclude /data/tianxing/PycharmProjects/CallbotNLPServer/server/callbot_nlp_server/dotenv/
 
 WORKDIR /data/tianxing/PycharmProjects/CallbotNLPServer
 
