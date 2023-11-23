@@ -51,6 +51,9 @@ fi
 
 cd "$(pwd)/server/callbot_nlp_server/" || exit 1;
 
+rm -rf log/
+rm -rf temp/
+
 nohup python3 run_callbot_nlp_server.py --port "${port}" > nohup_run.out &
 
 sleep 10

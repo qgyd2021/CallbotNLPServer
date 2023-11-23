@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # bash install.sh --stage 1 --stop_stage 1 --system_version centos
-# bash install.sh --stage 3 --stop_stage 4 --system_version centos
+# bash install.sh --stage 3 --stop_stage 5 --system_version centos
 # bash install.sh --stage 5 --stop_stage 5 --system_version centos
 
 
