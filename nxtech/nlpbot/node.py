@@ -100,6 +100,9 @@ class Node(Params):
         if len(context.text) == 0:
             return context
 
+        if len(self.searcher_list) == 0:
+            return context
+
         result = list()
         for searcher in self.searcher_list:
             result = searcher.search(context)
@@ -113,6 +116,9 @@ class Node(Params):
         context.append_row("""## intent search detail""")
 
         if len(context.text) == 0:
+            return context
+
+        if len(self.searcher_list) == 0:
             return context
 
         for searcher in self.searcher_list[:-1]:
