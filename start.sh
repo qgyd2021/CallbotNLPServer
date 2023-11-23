@@ -39,16 +39,6 @@ done
 $verbose && echo "system_version: ${system_version}"
 
 
-if [ $system_version == "windows" ]; then
-  alias python3='C:/Users/tianx/PycharmProjects/virtualenv/CallbotNLPServer/Scripts/python.exe'
-elif [ $system_version == "centos" ]; then
-  # conda activate CallbotNLPServer
-  alias python3='/usr/local/miniconda3/envs/CallbotNLPServer/bin/python3'
-elif [ $system_version == "ubuntu" ]; then
-  alias python3='/usr/local/miniconda3/envs/CallbotNLPServer/bin/python3'
-fi
-
-
 cd "$(pwd)/server/callbot_nlp_server/" || exit 1;
 
 rm -rf log/
