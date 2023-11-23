@@ -14,4 +14,4 @@ RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 RUN bash -c 'bash install.sh --stage 3 --stop_stage 5 --system_version ubuntu'
 
-CMD ["bash", "/data/tianxing/deploy_nlpbot/NlpBot/start.sh"]
+CMD ["bash", "/data/tianxing/PycharmProjects/CallbotNLPServer/start.sh"]
