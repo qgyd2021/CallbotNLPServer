@@ -1,11 +1,10 @@
 FROM python:3.6
 
-RUN mkdir -p /data/tianxing/PycharmProjects/CallbotNLPServer
-
-WORKDIR /data/tianxing/PycharmProjects/CallbotNLPServer
-
+RUN mkdir -p /data/tianxing/PycharmProjects/CallbotNLPServer && \
 COPY . /data/tianxing/PycharmProjects/CallbotNLPServer \
 --exclude data/
+
+WORKDIR /data/tianxing/PycharmProjects/CallbotNLPServer
 
 RUN pip3 install --upgrade pip
 
