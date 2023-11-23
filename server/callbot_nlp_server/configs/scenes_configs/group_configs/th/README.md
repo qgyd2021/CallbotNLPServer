@@ -72,7 +72,7 @@
     "scorer": {
         "type": "weighted_word_match",
         "language": "th",
-        "synonyms_filename": "server/nlpbot_server/config/weighted_word_xlsx/weighted_word_th.xlsx",
+        "synonyms_filename": "server/callbot_nlp_server/configs/weighted_word_xlsx/weighted_word_th.xlsx",
         "stages": [1.0, 0.85, 0.75, 0.65, 0.45, 0.35, 0.00],
         "scores": [1.0, 0.85, 0.75, 0.55, 0.35, 0.20, 0.00]
     }

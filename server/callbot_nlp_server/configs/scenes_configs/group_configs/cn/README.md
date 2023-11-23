@@ -79,7 +79,7 @@
     },
     "scorer": {
         "type": "weighted_word_match",
-        "synonyms_filename": "server/nlpbot_server/config/weighted_word_xlsx/weighted_word_cn.xlsx",
+        "synonyms_filename": "server/callbot_nlp_server/configs/weighted_word_xlsx/weighted_word_cn.xlsx",
         "ltp_data_path": "third_party_data/pyltp/ltp_data_v3.4.0",
         "stages": [1.0, 0.90, 0.80, 0.70, 0.60, 0.40, 0.00],
         "scores": [1.0, 0.85, 0.75, 0.55, 0.35, 0.20, 0.00]
