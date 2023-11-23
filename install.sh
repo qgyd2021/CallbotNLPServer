@@ -82,29 +82,32 @@ fi
 if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
   $verbose && echo "stage 3: download ltp_data_v3.4.0.zip"
   cd "${data_dir}" || exit 1;
-  wget http://model.scir.yunfutech.com/model/ltp_data_v3.4.0.zip
-  unzip ltp_data_v3.4.0.zip
-  rm -rf ltp_data_v3.4.0.zip
-
+  if [ ! -d ltp_data_v3.4.0 ]; then
+    wget http://model.scir.yunfutech.com/model/ltp_data_v3.4.0.zip
+    unzip ltp_data_v3.4.0.zip
+    rm -rf ltp_data_v3.4.0.zip
+  fi
 fi
 
 
 if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
   $verbose && echo "stage 3: download unidic-3.1.0.zip"
   cd "${data_dir}" || exit 1;
-  wget https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip
-  unzip unidic-3.1.0.zip
-  rm -rf unidic-3.1.0.zip
-
+  if [ ! -d unidic-3.1.0 ]; then
+    wget https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip
+    unzip unidic-3.1.0.zip
+    rm -rf unidic-3.1.0.zip
+  fi
 fi
 
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
   $verbose && echo "stage 5: download nltk_data"
   cd "${data_dir}" || exit 1;
 
-  # http://www.nltk.org/nltk_data/
-  wget https://huggingface.co/spaces/qgyd2021/nlp_tools/resolve/main/data/nltk_data.zip
-  unzip nltk_data.zip
-  rm -rf nltk_data.zip
-
+  if [ ! -d nltk_data ]; then
+    # http://www.nltk.org/nltk_data/
+    wget https://huggingface.co/spaces/qgyd2021/nlp_tools/resolve/main/data/nltk_data.zip
+    unzip nltk_data.zip
+    rm -rf nltk_data.zip
+  fi
 fi
