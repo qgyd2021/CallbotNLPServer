@@ -1,0 +1,147 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "black_white_regex",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ]
+            }
+        },
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "intent_and_entity",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ],
+                "intent_method": {
+                    "basic": {
+                        "type": "basic_intent_classifier",
+                        "url": "$str:basic_intent_classifier_url",
+                        "language": "chinese"
+                    }
+                }
+            }
+        },
+        {
+            "recall": {
+                "type": "elastic_search",
+                "update_es": true,
+                "tokenizer": {
+                    "type": "jieba"
+                },
+                "top_k": 30,
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ]
+            },
+            "scorer": {
+                "type": "edit_distance",
+                "max_edit_distance_list": [[[0, 3], [-1, -1]], [[4, 6], [-1, 1]], [[6, 9], [1, 2]], [[9, 15], [2, 3]], [[15, 20], [3, 5]], [[20, 200], [5, 7]]],
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ],
+                "tokenizer": {
+                    "type": "list"
+                },
+                "filter_list": [
+
+                ]
+            }
+        },
+        {
+            "recall": {
+                "type": "elastic_search",
+                "update_es": true,
+                "tokenizer": {
+                    "type": "jieba"
+                },
+                "top_k": 20,
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    },
+                    {
+                        "type": "cn_repeat"
+                    }
+                ]
+            },
+            "scorer": {
+                "type": "decision_tree",
+                "candidates": {
+                    "type": "mysql",
+                    "resource_type_list": ["similar_question"]
+                },
+                "tokenizer": {
+                    "type": "nltk"
+                },
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    },
+                    {
+                        "type": "cn_repeat"
+                    }
+                ],
+                "min_samples_split": 2,
+                "min_samples_leaf": 1
+            }
+        }
+    ]
+}

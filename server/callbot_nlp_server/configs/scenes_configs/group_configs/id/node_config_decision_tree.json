@@ -1,0 +1,33 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "faiss",
+                "http_allennlp_predictor": {
+                    "host_port": "$str:cls_id_20220325"
+                },
+                "tokenizer": {
+                    "type": "nltk"
+                },
+                "delimiter": " ",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ],
+                "top_k": 30,
+                "dim": 105,
+                "sentence_vector_key": "probs",
+                "sim_mode": "probs"
+            },
+            "scorer": {
+                "type": "scale",
+                "stages": [1.0, 0.99, 0.95, 0.90, 0.85, 0.50, 0.0],
+                "scores": [1.0, 0.85, 0.75, 0.50, 0.35, 0.20, 0.0]
+            }
+        }
+    ]
+}

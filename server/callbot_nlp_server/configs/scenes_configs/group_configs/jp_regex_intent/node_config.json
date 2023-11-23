@@ -1,0 +1,44 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "black_white_regex",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ]
+            }
+        },
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "intent_and_entity",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ],
+                "intent_method": {
+                    "basic": {
+                        "type": "basic_intent_classifier",
+                        "url": "$str:basic_intent_classifier_url",
+                        "language": "japanese"
+
+                    }
+                }
+            }
+        }
+    ]
+}

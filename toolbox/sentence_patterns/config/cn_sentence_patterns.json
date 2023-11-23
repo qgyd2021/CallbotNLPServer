@@ -1,0 +1,308 @@
+[
+    {
+        "en_title": "pos_and_neg",
+        "zh_title": "正反问句",
+        "sentence_pattern": "question",
+        "description": "正反问句, 是把谓语的肯定形式或否定形式并列起来然后提问的疑问句,\n回答者可选择其中之一作为回答.\n正反问句可以在句尾加或者不加 \"呢\", 但是不能加 \"吗\".\n比如: 会不会, 是不是, 能不能, 信不信, 怕不怕, 可不可以, 算不算等. \n例句: `有这个可不可以免费`, `这个质量好不好`, `你怕不怕光呢`, `你们害不害怕`. \n注意和附加问句相区分. ",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><([\\u4e00-\\u9fa5]+).*?不.*?(\\2).*?>).*",
+                "negative": ".*(?P<key>[<.*?/[\\u4e00-\\u9fa5]*?标点符号x>]*?<([\\u4e00-\\u9fa5]+).*?不.*?(\\2).*?>)$",
+                "example": "",
+                "title": ""
+
+            }
+        ]
+    },
+    {
+        "en_title": "contrary",
+        "zh_title": "反问句",
+        "sentence_pattern": "question",
+        "description": "反问句, 是用疑问句的形式来表示肯定或否定的竟义, 带有很强的强调意味. \n比如: 难到, 难道, 难道不, 怎么会, 怎能, 怎么能, 莫非, 难不成, 不是吗. \n注意: 是非问句和正反问句的差异, 是非问句一般用语气助词 \"吗\", 是否问句和正反问句关联性很大, 有的比较难区分. ",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><[\\u4e00-\\u9fa5]+/表反问副词d>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "question_words",
+        "zh_title": "特指问句",
+        "sentence_pattern": "question",
+        "description": "特指问句, 通过疑问代词 (如: 什么, 哪里, 哪儿, 哪个, 谁, 啥等) 来表达疑问的句子. \n如: 你们什么时候回来. ",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><.*?/(表疑问代词r|表疑问人称代词r)>).*",
+                "negative": ".*(?P<key><.*?/表陈述连词c>.*?<.*?/(表疑问代词r|表疑问人称代词r)>).*",
+                "example": "",
+                "title": ""
+            },
+            {
+                "deleted": true,
+                "positive": ".*(?P<key><.*?/(表疑问代词r|表疑问人称代词r)><.*?/名词n>).*",
+                "negative": ".*(?P<key><.*?/表陈述连词c>.*?<.*?/(表疑问代词r|表疑问人称代词r)><.*?/名词n>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "whether",
+        "zh_title": "是非问句",
+        "sentence_pattern": "question",
+        "description": "是非问句, 主要特点是, 回答时用肯定或否定答句, 是非问句一般用语气助词 \"吗\". \n比如: 会|是...吗, 好吗, 对吗, 是吗, 可以吗, 能吗, 信吗, 会吗, 怕吗, 算吗等. ",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><.*?/(表疑问语气词y|表疑问标点符号x)>)(?:< /[^>]*>)*?$",
+                "example": "你的脸上还有微笑吗",
+                "title": "疑问词结尾"
+            }
+        ]
+    },
+    {
+        "en_title": "choice",
+        "zh_title": "选择问句",
+        "sentence_pattern": "question",
+        "description": "选择问句, 用选择形式提出两种(或多种)不同情况, 要求对方选择其中一种情况作为回答. \n选择问句常用 \"是...还是...\" 连接, \"是\"也可以省略. \n如: 北京还是香港, 无趣的人是你还是我, 前年的事还是大前年. \n但是我们应注意到, 并不是包含`还是`的句子都是疑问句. \n如: 虽然成都有房子, 可我还是选择在深圳坚持一下. ",
+        "regex": [
+            {
+            }
+        ]
+    },
+    {
+        "en_title": "attach",
+        "zh_title": "附加问句",
+        "sentence_pattern": "question",
+        "description": "附加问句, 是在陈述句的后面追加如 `是不是, 行不行, 能不能, 可不可以` 来表达疑问. \n例: `这是小明的, 是不是`, `我想买特斯拉, 可不可以`. \n 很简单, 我们只要在句末检测到这些范式就可以了. ",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key>[<.*?/[\\u4e00-\\u9fa5]*?标点符号x>]*?<([\\u4e00-\\u9fa5]+).*?不.*?(\\2).*?>)$",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "sigh",
+        "zh_title": "感叹句",
+        "sentence_pattern": "special",
+        "description": "感叹句, 带有浓厚的感情的句子. 它表示 `快乐, 惊讶, 悲哀, 厌恶, 恐惧` 等情感. \n感叹句一般用降调, 句末都用叹号 `!/！` 表示. \n例如: \n由叹词构成的感叹句: 哎哟!, 救命约!, \n由名词构成的感叹句: 天哪!这一定是没了命了!, \n口号或祝词式的感叹句: 各族人民大团结万曲岁!, \n由 `多, 多么, 好, 真` 等副词和句尾语气词构成的感叹句: 那该有多好啊!.",
+        "note": "感叹句和祈使句很像, 感叹句像是在陈述句后面加感叹词或感叹号. 祈使句表指令的句子, 虽然末尾可加感叹号, 但感叹号不是必须的. ",
+        "regex": [
+            {
+                "deleted": false,
+                "positive":  "^(?:<[^<]*/[^>]*>)*?(?P<key><[^<]*?/(表感叹语气词y|表感叹标点符号x)>)(?P<punc><[^<]*/[\\u4e00-\\u9fa5]*标点符号x>)*?$",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "imperative",
+        "zh_title": "祈使句",
+        "sentence_pattern": "special",
+        "description": "祈使句的作是用要求, 请求或命令, 劝告, 叮嘱, 建议别人做或不做一件事,\n祈使句的句末一般用感叹号 (但感叹号不是必须的, 没有感叹号仍可表示祈使句意图), 但是有些祈使句的语气较弱, 可以用句号结尾. \n祈使句可以用语气词 \"吧\" 作结尾, 也可以不用语气词. \n祈使句可以表示命令, 请求, 禁止, 努阻. 祈使句中的主语常常被省去. \n例如: \n`保持肃静! 起立! 立定! 站起来! 快去救火`, \n`请等我一会, 请给我们多提意见!`,\n`您请坐啊!这个问题你来回答吧!帮帮我的忙吧!`,\n`此处不准停车! 别动! 不许胡说! 此处不准吸烟! 你不要去! 谁也不要说话! `,\n`请忽在车厢内饮食, 要好好听老师的话啊, 你们几个休息一会儿吧.`\n\n",
+        "note": "感叹句和祈使句很像, 感叹句像是在陈述句后面加感叹词或感叹号. 祈使句表指令的句子, 虽然末尾可加感叹号, 但感叹号不是必须的. ",
+        "regex": [
+            {
+            }
+        ]
+    },
+    {
+        "en_title": "exist",
+        "zh_title": "存在句",
+        "sentence_pattern": "special",
+        "description": "存在句, 某处(某人) 有/没有 某物\n(1) 把表示 \"某处存在,出现,消失某物\" 的句子称作存在句. \n(2) 把表示 \"某处存在某物\" 的句子称作存在句,\n(3) 把 \"某处存在某物\" 和 \"某物在某处\" 的句子都称作存在句,\n(4) 把 \"某处存在某物\", \"某物在某处\" 以及 \"某物在某处存在着\" 的句子都称作存在句. \n\n\"某处存在某物\": \n门口有两头狮子\n他有枪\n他没有枪\n\n\"某物在某处存在着\": \n大熊猫在四川很多\n北京在中国",
+        "note": "可以简单地归结为 有字句, 在字句. 这样或许不准确, 可在后续进行优化. ",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><[^<]*?/(表拥有动词v|表存在介词p)>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "compare",
+        "zh_title": "比较句",
+        "sentence_pattern": "special",
+        "description": "比较句: 现代汉语比较句是指谓语中含有比较词语或比较格式的句子. \n介词`比`: 太湖比西湖大\n固定结构: 跟(和,同,与,像)...一样: 今天跟昨天一样暖活\n以`有`引进比较对象的比较句: 弟弟有(没有)哥哥那么高\n用`不如`引入比较对象: 看这种电影还不如去睡觉\n以`像`引进比较对象: 安娜像她妈妈那么漂亮\n用`越来越`比较句子: 天气越来越暖和了",
+        "note": "`弟弟有(没有)哥哥那么高` 这种的不好识别, 暂不处理",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><[^<]*?/(表比较连词c|表比较动词p)>).*",
+                "example": "",
+                "title": ""
+            },
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><(跟|和|同|与|像)/[^>]*?>.*?<(一样|似的)/[^>]*?>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "ba_struct",
+        "zh_title": "把字句",
+        "sentence_pattern": "special",
+        "description": "阳光把冷冷的冬天赶走了",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><把/[^>]*?>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "bei_struct",
+        "zh_title": "被字句",
+        "sentence_pattern": "special",
+        "description": "衣服被雨淋湿了",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><被/[^>]*?>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "lian_struct",
+        "zh_title": "连字句",
+        "sentence_pattern": "special",
+        "description": "我不但眼睛不舒服, 好像连耳朵也有点疼",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><连/[^>]*?>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "shi_struct",
+        "zh_title": "是字句",
+        "sentence_pattern": "special",
+        "description": "我的爸爸是老师",
+        "note": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<key><是/[^>]*?>).*",
+                "example": "",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "subject_front",
+        "zh_title": "主语为首",
+        "sentence_pattern": "statement",
+        "description": "大家对这件事都很热心",
+        "note": "这陈述句, 没有句法分析, 似乎搞不定的样子啊. 只能严格处理一些特定的模型",
+        "utterances": ["好大的飞机"],
+        "black_utterances": [],
+        "regex": [
+            {
+                "deleted": false,
+                "positive": ".*(?P<subject><[^<]*?/(名词n|人名nr|地名ns|代词r|表疑问代词r|人称代词r|表疑问人称代词r)>)(?P<predicate><[^<]*?/(动词v)>)(?P<object><[^<]*?/(名词n|人名nr|地名ns|代词r|表疑问代词r|人称代词r|表疑问人称代词r)>).*",
+                "example": "主谓宾, 名词n动词v名词n. 我是猫, ",
+                "title": "主谓宾"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?P<adj><[^<]*/(名词n|副词d|形容词a)>)*?(?P<noun><[^<]*/名词n>)$",
+                "example": "<无法/副词d><开机/名词n>",
+                "title": "名词短语"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?P<adj><[^<]*/[^>]*>)*?(?P<noun><[^<]*/名词n>)$",
+                "negative": ".*?(?P<adj><[^<]*/(名词n)>)(?:.*?)(?P<noun><[^<]*/名词n>)$",
+                "example": "名词短语",
+                "title": "名词短语"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]*/(人称代词r|名词n)>)*?(?:<[^<]*/[^>]*>)*?(?P<noun><[^<]*/名词n>)*?(?:<[^<]*/[^>]*>)*?$",
+                "negative": "^(?:<[^<]*/[^>]*>)*?(?P<noun><[^<]*/动词v>)(?:<[^<]*/[^>]*>)*?$",
+                "example": "他们原本就要回家的",
+                "title": "名词短语"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?:<(那|这)/[^>]*>)?(?:<[^<]*/数词m>)?(?:<[^<]*/量词q>)?<[^<]*/名词n>$",
+                "example": "限定词+数词+量词+名词: <那/代词r><三本/数词m><书/名词n>",
+                "title": "名词短语"
+            }
+        ]
+    },
+    {
+        "en_title": "verb_object",
+        "zh_title": "动宾短语",
+        "sentence_pattern": "statement",
+        "description": "动词加名词是偏正, 动宾, 并列结构. ",
+        "node": "识别 `动词+名词`, 但不要识别 `名词+动词+名词`. ",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]*/[^>]*>)*?(?P<verb><[^<]*/动词v>)(?P<noun><[^<]*/(名词n|人称代词r)>)(?:<[^<]*/[^>]*>)*?$",
+                "negative": "^(?:<[^<]*/[^>]*>)*?(?P<noun1><[^<]*/(名词n|人称代词r)>)(?:<[^<]*/[^>]*>)*?(?P<verb><[^<]*/动词v>)(?P<noun2><[^<]*/(名词n|人称代词r)>)(?:<[^<]*/[^>]*>)*?$",
+                "example": "打你, 砍你",
+                "title": "动词v名词n"
+            }
+        ]
+    },
+    {
+        "en_title": "theme_front",
+        "zh_title": "主题为首",
+        "sentence_pattern": "statement",
+        "description": "红绿灯,真好玩",
+        "note": "这陈述句, 没有句法分析, 似乎搞不定的样子啊",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?P<adj1><[^<]*/(副词d|形容词a)>)*?<[^<]*/名词n>(?P<adj2><[^<]*/(副词d|形容词a)>)*?<[^<]*/形容词a>(?P<punc><[^<]*/[\\u4e00-\\u9fa5]*标点符号x>)*?$",
+                "example": "<大/形容词a><棉花/名词n><真/副词d><好看/形容词a>",
+                "title": "名词n形容词a"
+            }
+        ]
+    },
+    {
+        "en_title": "complex",
+        "zh_title": "复合句",
+        "sentence_pattern": "statement",
+        "description": "他们飞的好高好远, 空过白去, 越过海洋",
+        "note": "这陈述句, 没有句法分析, 似乎搞不定的样子啊",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]*/[^>]*>)*?(?:<[^<]*/标点符号x>)+(?:<[^<]*/[^>]*>)*?$",
+                "negative": "^(?:<[^<]*/[^>]*>)*?(?:<[^<]*/标点符号x>)+$",
+                "example": "好吧, 那还刚好. "
+            }
+        ]
+    }
+]

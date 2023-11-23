@@ -1,0 +1,16 @@
+{
+    "env": "ppe",
+    "mysql_connect": {
+        "host": "$str:mysql_connect_host",
+        "port": "$int:mysql_connect_port",
+        "user": "$str:mysql_user",
+        "password": "$str:mysql_password",
+        "database": "$str:database",
+        "charset": "utf8"
+    },
+    "es_connect": {
+        "hosts": ["$str:es_connect_host1"],
+        "http_auth": ["$str:es_connect_user", "$str:es_connect_password"],
+        "port": "$int:es_connect_port"
+    }
+}

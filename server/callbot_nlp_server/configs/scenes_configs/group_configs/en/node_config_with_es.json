@@ -1,0 +1,84 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "elastic_search",
+                "update_es": true,
+                "tokenizer": {
+                    "type": "nltk"
+                },
+                "top_k": 30,
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "contraction"
+                    }
+                ],
+                "replacer_list": [
+                    {
+                        "type": "wordnet_lemma"
+                    },
+                    {
+                        "type": "synonym",
+                        "filename": "server/nlpbot_server/config/synonyms/english_synonyms.json"
+                    }
+                ]
+            },
+            "scorer": {
+                "type": "edit_distance",
+                "max_edit_distance_list": [[[0, 3], [-1, -1]], [[4, 6], [-1, 1]], [[6, 9], [1, 2]], [[9, 15], [2, 3]], [[15, 20], [3, 5]], [[20, 200], [5, 7]]],
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "contraction"
+                    }
+                ],
+                "replacer_list": [
+                    {
+                        "type": "wordnet_lemma"
+                    },
+                    {
+                        "type": "synonym",
+                        "filename": "server/nlpbot_server/config/synonyms/english_synonyms.json"
+                    }
+                ],
+                "tokenizer": {
+                    "type": "list"
+                }
+            }
+        },
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "intent_and_entity",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ],
+                "intent_method": {
+                    "basic": {
+                        "type": "basic_intent_classifier",
+                        "url": "$str:basic_intent_classifier_url",
+                        "language": "english"
+                    }
+                }
+            }
+        }
+    ]
+}

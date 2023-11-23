@@ -1,0 +1,51 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "black_white_regex",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ]
+            }
+        },
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "intent_and_entity",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    },
+                    {
+                        "type": "zh_conv",
+                        "locale": "zh-cn"
+                    }
+                ],
+                "intent_method": {
+                    "basic": {
+                        "type": "basic_intent_classifier",
+                        "url": "$str:basic_intent_classifier_url",
+                        "language": "chinese"
+                    }
+                }
+            }
+        }
+    ]
+}

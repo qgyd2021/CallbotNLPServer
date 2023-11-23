@@ -1,0 +1,20 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "black_white_regex",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ]
+            }
+        }
+    ]
+}

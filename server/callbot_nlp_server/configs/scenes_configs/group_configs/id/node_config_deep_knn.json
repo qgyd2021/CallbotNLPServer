@@ -1,0 +1,31 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "deep_knn",
+                "http_allennlp_predictor": {
+                    "host_port": "$str:deep_knn_id_host_port"
+                },
+                "tokenizer": {
+                    "type": "nltk"
+                },
+                "top_k": 30,
+                "dim": 256,
+                "delimiter": " ",
+                "preprocess_list": [
+                    {
+                        "type": "do_lowercase"
+                    },
+                    {
+                        "type": "strip"
+                    }
+                ]
+            },
+            "scorer": {
+                "type": "scale",
+                "stages": [1.0, 0.80, 0.70, 0.60, 0.50, 0.40, 0.35, 0.20, 0.0],
+                "scores": [1.0, 0.95, 0.85, 0.75, 0.70, 0.60, 0.35, 0.20, 0.0]
+            }
+        }
+    ]
+}

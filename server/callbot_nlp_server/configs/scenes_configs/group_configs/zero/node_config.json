@@ -1,0 +1,12 @@
+{
+    "searcher_list": [
+        {
+            "recall": {
+                "type": "each_node_one"
+            },
+            "scorer": {
+                "type": "zero"
+            }
+        }
+    ]
+}

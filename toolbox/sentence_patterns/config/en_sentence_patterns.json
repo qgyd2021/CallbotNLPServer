@@ -1,0 +1,118 @@
+[
+    {
+        "en_title": "subject_verb_object",
+        "zh_title": "主谓宾",
+        "sentence_pattern": "statement",
+        "description": "不带从句的主谓宾",
+        "note": null,
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*><[^<]+/[一-龥]*动词[a-z一-龥]*>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词)[a-z一-龥]*>)*(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*>(?:<[^<]+/标点符号x>)?$",
+                "example": "he is such a young boy",
+                "title": "主谓宾"
+            }
+        ]
+    },
+    {
+        "en_title": "subject_verb",
+        "zh_title": "主谓",
+        "sentence_pattern": "statement",
+        "description": "主谓短语, i know, i don't know",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*>(?:<[^<]+/副词rb>)*<[^<]+/[一-龥]*动词[a-z一-龥]*>$",
+                "example": "i know; the limit never increased"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*>(?:<[^<]+/副词rb>)*<do/[^>]+>(?:<[^<]+/副词rb>)*<[^<]+/[一-龥]*动词[a-z一-龥]*>$",
+                "example": "i do know; i do not know"
+            }
+        ]
+    },
+    {
+        "en_title": "verb_object",
+        "zh_title": "动宾",
+        "sentence_pattern": "statement",
+        "description": "动宾短语",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^<[^<]+/[一-龥]*动词[a-z一-龥]*>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词)[a-z一-龥]*>)*(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*>(?:<[^<]+/标点符号x>)?$",
+                "example": "cut it",
+                "title": "动词 + 名词"
+            }
+        ]
+    },
+    {
+        "en_title": "noun",
+        "zh_title": "名词",
+        "sentence_pattern": "statement",
+        "description": "",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*>$",
+                "example": "yes;no"
+            }
+        ]
+    },
+    {
+        "en_title": "it_as_subject",
+        "zh_title": "it作主语",
+        "sentence_pattern": "statement",
+        "description": "it 作主语的陈述句",
+        "note": null,
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^<it/代词pr><[^<]+/[一-龥]*动词[a-z一-龥]*>.*",
+                "negative": null,
+                "example": "it is a good idea;it appeared in china",
+                "title": ""
+            }
+        ]
+    },
+    {
+        "en_title": "wh_question",
+        "zh_title": "wh疑问句",
+        "sentence_pattern": "question",
+        "description": "what, where, how, which 等疑问句. ",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^<[^<]+/(wh开头的副词wrb|wh开头的代词wp|wh开头的物主代词wp$|关系代词wdt)>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词|单词to)[a-z一-龥]*>)*<[^<]+/[一-龥]*动词[a-z一-龥]*>.*",
+                "negative": "^<[^<]+/(wh开头的副词wrb|wh开头的代词wp|wh开头的物主代词wp$|关系代词wdt)>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词|单词to)[a-z一-龥]*>)*<[^<]+/[一-龥]*动词[a-z一-龥]*>.*<[^<]+/[一-龥]*动词[a-z一-龥]*>.*",
+                "example": "what to do;how to do it;whom to see;which to choose; negative 是排除 ow to begin is far more difficult than where to stop"
+            },
+            {
+                "deleted": false,
+                "positive": "^<[^<]+/[一-龥]*动词[a-z一-龥]*>(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*><[^<]+/(wh开头的副词wrb|wh开头的代词wp|wh开头的物主代词wp$|关系代词wdt)>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词|单词to)[a-z一-龥]*>)*<[^<]+/[一-龥]*动词[a-z一-龥]*>.*",
+                "example": "tell me what to do next",
+                "title": "动词+名词+疑问词..."
+            }
+        ]
+    },
+    {
+        "en_title": "participle",
+        "zh_title": "分词句型",
+        "sentence_pattern": "statement",
+        "description": "过去分词, 现在分词作修饰词. 分词也可能是分词短语. ",
+        "regex": [
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*><[^<]+/[一-龥]*动词[a-z一-龥]*>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词)[a-z一-龥]*>)*<[^<]+/动词过去分词vbn>.*",
+                "example": "the quota has not increased;",
+                "title": "过去分词补语"
+            },
+            {
+                "deleted": false,
+                "positive": "^(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*><[^<]+/[一-龥]*动词[a-z一-龥]*>(?:<[^<]+/[一-龥]*(形容词|副词|介词|限定词)[a-z一-龥]*>)*(?:<[^<]+/限定词dt>)?<[^<]+/[一-龥]*(代词|名词)[a-z一-龥]*><[^<]+/动词现在分词vbg>.*",
+                "example": "he came home crying; he sat in the corner reading a newspaper",
+                "title": "现在分词补语"
+            }
+        ]
+    }
+]
