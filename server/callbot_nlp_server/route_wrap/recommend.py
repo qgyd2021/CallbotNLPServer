@@ -7,8 +7,9 @@ import traceback
 import jsonschema
 
 from server.callbot_nlp_server.schema.recommend import recommend_response_schema
+from server.exception import ExpectedError
 
-logger = logging.getLogger('server')
+logger = logging.getLogger("server")
 
 
 def recommend_route_wrap(f):
@@ -19,12 +20,12 @@ def recommend_route_wrap(f):
         begin = time.time()
         try:
             recommend, addition = await f(*args, **kwargs)
-            message = 'success'
+            message = "success"
             response = {
-                'code': 0,
-                'retCode': 0,
-                'retMsg': message,
-                'results': recommend,
+                "code": 0,
+                "retCode": 0,
+                "retMsg": message,
+                "results": recommend,
                 **addition
             }
             # 响应体校验
@@ -37,12 +38,12 @@ def recommend_route_wrap(f):
         except ExpectedError as e:
             message = e.message
             response = {
-                'code': 60501,
-                'retCode': 60501,
-                'message': message,
-                'results': None,
-                'detail': e.detail,
-                'traceback': e.traceback,
+                "code": 60501,
+                "retCode": 60501,
+                "message": message,
+                "results": None,
+                "detail": e.detail,
+                "traceback": e.traceback,
             }
             status_code = 501
 
@@ -50,11 +51,11 @@ def recommend_route_wrap(f):
             tb = traceback.format_exc()
             message = str(e)
             response = {
-                'code': 60500,
-                'retCode': 60500,
-                'message': message,
-                'results': None,
-                'traceback': tb,
+                "code": 60500,
+                "retCode": 60500,
+                "message": message,
+                "results": None,
+                "traceback": tb,
             }
             status_code = 500
             logger.error(tb)
@@ -62,9 +63,9 @@ def recommend_route_wrap(f):
 
         cost = time.time() - begin
         cost = round(cost, 4)
-        response['time_cost'] = cost
+        response["time_cost"] = cost
         # url| elapsed| code| msg| req body| rsp body
-        log_message = '{uri}|{elapsed}|{code}|{msg}|{req_body}|{res_body}'.format(
+        log_message = "{uri}|{elapsed}|{code}|{msg}|{req_body}|{res_body}".format(
             uri=self.request.uri,
             elapsed=cost,
             code=status_code,
@@ -73,7 +74,7 @@ def recommend_route_wrap(f):
             res_body=json.dumps(response, ensure_ascii=False),
         )
         logger.info(log_message)
-        # logger.info('response: {}'.format(json.dumps(response, ensure_ascii=False)))
+        # logger.info("response: {}".format(json.dumps(response, ensure_ascii=False)))
 
         return response, status_code
     return inner

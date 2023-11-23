@@ -9,9 +9,7 @@ import requests
 
 def get_args():
     """
-    python3 access_test_chatbot_nlp.py --host_port 127.0.0.1:9072
-    python3 access_test_chatbot_nlp.py --host_port 127.0.0.1:9076 --scene_id 0usppgoidvbx --current_node_id a0447b5f-7d91-48e6-bbaf-52ec28b4f154
-    python3 access_test_chatbot_nlp.py --host_port 127.0.0.1:9072 --scene_id 6fu2fazrahmf --current_node_id c7eccca3-4405-4e81-99f7-8c0d06ba958c
+    python3 access_test_chatbot_nlp.py --port 9070 --scene_id aha6p0n4g9a8 --current_node_id 26032964-e631-4a0b-9e97-1ce03735d418
 
     :return:
     """
