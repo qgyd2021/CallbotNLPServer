@@ -100,6 +100,7 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
   fi
 fi
 
+
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
   $verbose && echo "stage 5: download nltk_data"
   cd "${data_dir}" || exit 1;

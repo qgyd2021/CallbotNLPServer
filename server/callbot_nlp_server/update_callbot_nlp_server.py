@@ -160,8 +160,8 @@ def update():
     scene_update_task_list = list()
 
     # 重新打开文件
-    dotenv = settings.environment.open_dotenv()
-    scenes_to_init = json.loads(dotenv["init_scenes"])
+    settings.environment.reload_dotenv()
+    scenes_to_init = settings.environment.get(key="init_scenes", dtype=json.loads)
 
     for product_id, scene_id, group_config, env in scenes_to_init:
         scene_update_begin = time.time()
