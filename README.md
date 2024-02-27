@@ -12,7 +12,7 @@ cd /data/tianxing/PycharmProjects
 
 git clone https://github.com/qgyd2021/CallbotNLPServer.git
 ```
-宿主机上创建目标并拉取代码.
+宿主机上创建目录并拉取代码.
 
 ```text
 cd /data/tianxing/PycharmProjects/CallbotNLPServer/server/callbot_nlp_server
@@ -26,7 +26,7 @@ unzip dotenv.zip
 ```text
 cd /data/tianxing/PycharmProjects/CallbotNLPServer
 
-docker build -t callbot_nlp:v20231201_1510 .
+docker build -t callbot_nlp:v20240227_1735 .
 ```
 构建镜像. 
 

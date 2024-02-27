@@ -29,6 +29,19 @@ class EnvironmentManager(object):
         )
         return None
 
+    def open_dotenv(self, filename: str = None):
+        filename = filename or self.filename
+        dotenv = DotEnv(
+            dotenv_path=filename,
+            stream=None,
+            verbose=False,
+            interpolate=False,
+            override=False,
+            encoding="utf-8",
+        )
+        result = dotenv.dict()
+        return result
+
     def get(self, key, default=None, dtype=str):
         result = os.environ.get(key)
         if result is None:

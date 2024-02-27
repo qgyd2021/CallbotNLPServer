@@ -15,7 +15,6 @@ temp_update_directory.mkdir(exist_ok=True)
 environment = EnvironmentManager(
     path=os.path.join(project_path, "server/callbot_nlp_server/dotenv"),
     env=os.environ.get("environment", "hk_dev"),
-    override=True
 )
 
 json_config = JsonConfig(
